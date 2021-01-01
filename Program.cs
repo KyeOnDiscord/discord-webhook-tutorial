@@ -5,15 +5,11 @@ public class Program
 {
 	public static void sendDiscordWebhook(string URL, string profilepic, string username, string message)
         {
-            using (WebClient web = new WebClient())
-            {
                 NameValueCollection discordValues = new NameValueCollection();
-                discordValues.Clear();
                 discordValues.Add("username", username);
                 discordValues.Add("avatar_url", profilepic);
                 discordValues.Add("content", message);
-                web.UploadValues(URL, discordValues);
-            }
+                new WebClient().UploadValues(URL, discordValues);
         }
 	
 	public static void Main()
