@@ -1,6 +1,9 @@
 # Discord-Webhook-Tutorial
 C# Discord Webhook Tutorial
 
+
+For Discord Webhooks with Embeds go here: https://github.com/kyeondiscord/discord-webhook-tutorial-embed
+
 Use these namespaces:
 ```csharp
 using System.Net; //For webclient
@@ -12,14 +15,11 @@ Paste this method into your .cs file.
 ```csharp
 public static void sendDiscordWebhook(string URL, string profilepic, string username, string message)
         {
-            using (WebClient web = new WebClient())
-            {
                 NameValueCollection discordValues = new NameValueCollection();
                 discordValues.Add("username", username);
                 discordValues.Add("avatar_url", profilepic);
                 discordValues.Add("content", message);
-                web.UploadValues(URL, discordValues);
-            }
+                new WebClient().UploadValues(URL, discordValues);
         }
 ```
 
